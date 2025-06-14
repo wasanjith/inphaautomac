@@ -63,10 +63,10 @@ class ManageModules extends ManageRecords
     // Add the Update Modules action only if the condition is met
     if ($canUpdateModules) {
         $actions[] = Action::make('Update Modules')
-            ->modal('updateModules', [
-                'title' => 'Update Modules',
-                'width' => '4xl',
-            ])
+            ->modal()
+            ->modalWidth('4xl')
+            ->modalHeading('Update Modules')
+            ->closeModalByClickingAway(false)
             ->form(function () use ($modules, $activeBatteryPackId) {
                 return [
                     Forms\Components\Hidden::make('battery_pack_id')
